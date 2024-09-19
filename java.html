@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Java</title>
+    </head>
+    <script>
+        function Oper() {
+            var operation = document.querySelector('input[name="operation"]:checked').value;
+            var Num1 = parseFloat(document.getElementById('Num1').value);
+            var Num2 = parseFloat(document.getElementById('Num2').value);
+            var Resultado;
+            let Res;
+
+            if (operation === '+') {
+                Resultado = Num1 + Num2;
+            } else if (operation === '-') {
+                Resultado = Num1 - Num2;
+            } else if (operation === '*') {
+                Resultado = Num1 * Num2;
+            } else if (operation === '/') {
+                Resultado = Num1 / Num2;
+            } else if (operation === '^') {
+                Resultado = Math.pow(Num1, Num2);
+            } else if (operation === 'R') {
+                Resultado = Math.sqrt(Num1, Num2)
+            } else {
+                alert('Error: operador no válido');
+                return;
+            }
+            document.getElementById('Res').innerText = 'El resultado de la operación es: '+ Resultado;
+            
+        }
+    
+        function Promediar(){
+            var Nota1 = parseFloat(document.getElementById('Nota1').value);
+            var Nota2 = parseFloat(document.getElementById('Nota2').value);
+            var Nota3 = parseFloat(document.getElementById('Nota3').value);
+            const NotaTotal = Nota1 + Nota2 + Nota3;
+            const Promedio = NotaTotal / 3;
+            let Resultado;
+
+                if (Promedio > 4){
+                    document.getElementById('Resultado'). innerText = 'Felicidades, usted paso, promedio: '+ Promedio;
+                } else{
+                    document.getElementById('Resultado'). innerText = 'Usted no paso, promedio: '+ Promedio;
+                }
+        }
+
+        function Plata(){
+            var Horas = 0;
+            var Horas = parseInt(document.getElementById('Horas').value);
+            var Plata;
+            let Money;
+            let farra;
+            if(Horas > 40){
+                Plata = parseInt(Horas) * 25000;
+                document.getElementById('Money').innerText = 'Su sueldo es: '+Plata;
+                document.getElementById('farra').innerText =  Plata;
+            } else {
+                Plata = parseInt(Horas) * 16000;
+                document.getElementById('Money').innerText = 'Su sueldo es: '+Plata;
+                document.getElementById('farra').innerText = Plata;
+            }
+
+
+        }
+    
+        function Ord(){
+            var OrdNum1 = parseInt(document.getElementById('OrdNum1').value);
+            var OrdNum2 = parseInt(document.getElementById('OrdNum2').value);
+            if(OrdNum1>OrdNum2){
+                document.getElementById('Ordenar').innerText = 'El orden es: ' + OrdNum1 + OrdNum2;
+
+            } else{
+                document.getElementById('Ordenar').innerText = 'El orden es: ' + OrdNum2 + OrdNum1;
+            }
+
+        }
+
+        function Simular(){
+            var Saldo = 1000000;
+            var Consignacion = parseInt(document.getElementById('Consignacion').value);
+
+        }
+    </script>
+    <style>
+
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            background-color: lightslategray;
+        }
+        
+        #Calcula{
+            width: 25%;
+            border: solid 2px black;
+            border-width: 25%;
+            border-radius: 15px;
+            
+        }
+        #cuestion{
+            text-align: left;
+            margin-left: 10px;
+        }
+        input{
+            border-radius: 5px;
+        }
+    </style>
+    <body>
+        <center>
+            <div name="Calculamesta">
+                <center>
+                    <section id="Calculadora">
+                        <form action="Calcular" id="Calcula">
+                            <h2>Selecciona la operación a realizar</h2>
+                            <section id="cuestion">
+                                <input type="radio" id="+" name="operation" value="+">
+                                <label for="+">+</label><br>
+                                <input type="radio" id="-" name="operation" value="-">
+                                <label for="-">-</label><br>
+                                <input type="radio" id="*" name="operation" value="*">
+                                <label for="*">*</label><br>
+                                <input type="radio" id="/" name="operation" value="/">
+                                <label for="/">/</label><br>
+                                <input type="radio" id="^" name="operation" value="^">
+                                <label for="^">Potencia</label><br>
+                                <input type="radio" id="R" name="operation" value="R">
+                                <label for="R">Raiz</label><br>
+                                <label for="Num1">Ingresa un numero</label><br>
+                                <input type="number" id="Num1"><br>
+                                <label for="Num2">Ingresa otro numero</label><br>
+                                <input type="number" id="Num2"><br>
+                            </section>
+                            <input type="button" onclick="Oper()" class="btn" value="Resultado">
+                            <div id="Res"></div>
+
+                        </form>
+                    </section>
+                </center>
+            </div><br>
+            <div id="Alumnos">
+                <center>
+                    
+                        
+                    <form action="Promediar" id="Calcula">
+                        <h2>Calculadora de promedios</h2>
+                        <section id="cuestion">
+                            <label for="Nota1">Ingrese la tota numero 1</label><br>
+                            <input type="number" name="Nota1" id="Nota1"><br>
+                            <label for="Nota2">Ingrese la nota numero 2</label><br>
+                            <input type="number" name="Nota2" id="Nota2"><br>
+                            <label for="Nota3">Ingrese la nota numero 3</label><br>
+                            <input type="number" name="Nota3" id="Nota3"><br>
+                        </section>
+                        <button type="button" onclick="Promediar()">Promediar</button>
+                    
+                        <div id="Resultado"></div>
+                    </form>
+
+                    
+                </center>
+            </div><br>
+            <div name="Obreros">
+                <form action="Salario" id="Calcula">
+                    <h2>Calculadora de sueldo semanal</h2>
+                    <section id="cuestion">
+                    <label for="Salar">Ingrese las horas laburadas</label><br>
+                    <input type="number" id="Horas"><br>
+                    <button type="button" onclick="Plata()">Calcular</button>
+                    </section>
+                    <div id="Money"></div>
+                    <div id="farra"></div>    
+                </form>
+    
+            </div><br>
+            <div id="Numeros">
+                <form action="None"id="Calcula">
+                    <h2>Ordenador de Numeros</h2>
+                    <h4>Solo funciona para numeros enteros</h4>
+                    <section id="cuestion">
+                        <label for="OrdNum1">Ingresa el primer numero</label><br>
+                        <input type="number" id="OrdNum1"><br>
+                        <label for="OrdNum2">Ingresa el segundo numero</label><br>
+                        <input type="number" id="OrdNum2"><br>
+                        <button type="button" onclick="Ord()">Ordenar</button><br>
+
+                    </section>
+                    <div id="Ordenar"></div>
+                </form>
+            </div>
+            <div id="Simulación">
+                <form action="Simular" id="Calcula">
+                    <h2>Esto es un simulador de banco</h2>
+                    <p>Esta cuenta con consignaciones, retiros y saldos activos.</p>
+                    <p>Advertencia: El simulador solo admite valores enteros, colocar un punto convierte en valor en decimal.</p>
+                    <p>Su saldo inicial es de: </p>
+                    <p>COP $1'000.000</p><br>
+                    <p>Saldo actual: 1000000</p>
+                    <label for="Consigna">Cantidad a consignar</label><br>
+                    <input type="number" id="Consignacion"><br>
+                    <button type="button" onclick="">Consignar</button><br>
+                    <label for="Retiro">Cantidad a retirar</label><br>
+                    <input type="number" id="Retirar">
+                    <button type="button" onclick="">Retirar</button><br>
+                    <button type="button">Reiniciar</button>
+
+
+                    
+                </form>
+            </div>
+        </center>
+    </body>
+</html>
